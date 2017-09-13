@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SLDialog
+    xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance'
+    xsi:noNamespaceSchemaLocation='http://nhpack-nhendrikx.rhcloud.com/doc/sldialog.xsd'
+    controller="controllers.employe.ControllersInscription"
+    width="800" height="600"
+	title="RezyZone :: Employe :: Inscription">
+    
+    <Children>
+        <SLLabel text="#{header}">
+            <GridBagLayoutConstraints rowIndex="0" columnIndex="0" fillStrategy="BOTH" />        
+        </SLLabel> 
+        <!-- Label Nom-->
+        <SLLabel text="Nom">   
+            <GridBagLayoutConstraints columnIndex="0" columnSpan="1"  rowIndex="1" rowSpan="1" fillStrategy="HORIZONTALE"/>
+        </SLLabel>
+        
+        <!-- TextField Nom-->
+        <SLTextField text="#{Nom}">   
+            <GridBagLayoutConstraints columnIndex="2" columnSpan="1"  rowIndex="1" rowSpan="1" fillStrategy="HORIZONTALE"/>
+        </SLTextField>
+        
+        <!-- Label Prenom-->
+        <SLLabel text="Prenom">   
+            <GridBagLayoutConstraints columnIndex="0" columnSpan="1"  rowIndex="2" rowSpan="1" fillStrategy="HORIZONTALE"/>
+        </SLLabel>
+        
+        <!-- TextField Prenom-->
+        <SLTextField text="#{Prenom}">   
+            <GridBagLayoutConstraints columnIndex="2" columnSpan="1"  rowIndex="2" rowSpan="1" fillStrategy="HORIZONTALE"/>
+        </SLTextField>
+        
+        <!-- Label Nbr adulte-->
+        <SLLabel text="Nbr adultes">   
+            <GridBagLayoutConstraints columnIndex="4" columnSpan="1"  rowIndex="1" rowSpan="1" fillStrategy="HORIZONTALE"/>
+        </SLLabel>
+        
+        <!-- Integer adulte-->
+        <SLIntegerField value="#{nbAdultes}" minimum="1" maximum="9">
+            <GridBagLayoutConstraints columnIndex="5" columnSpan="1" rowIndex="1" rowSpan="1" fillStrategy="HORIZONTALE"/>
+        </SLIntegerField>
+        
+        <!-- Label Nbr enfant-->
+        <SLLabel text="Nbr enfants">   
+            <GridBagLayoutConstraints columnIndex="4" columnSpan="1" rowIndex="2" rowSpan="1" fillStrategy="HORIZONTALE"/>
+        </SLLabel>
+        
+        <!-- Integer enfant-->
+        <SLIntegerField value="#{nbEnfants}" minimum="0" maximum="9">
+            <GridBagLayoutConstraints columnIndex="5" columnSpan="1" rowIndex="2" rowSpan="1" fillStrategy="HORIZONTALE"/>
+        </SLIntegerField>
+        
+        <!-- Label e-mail-->
+        <SLLabel text="Email">   
+            <GridBagLayoutConstraints columnIndex="0" columnSpan="1" rowIndex="3" rowSpan="1" fillStrategy="HORIZONTALE"/>
+        </SLLabel>
+        
+        <!-- TextField e-mail-->
+        <SLTextField text="#{mail}">   
+            <GridBagLayoutConstraints columnIndex="2" columnSpan="1" rowIndex="3" rowSpan="1" fillStrategy="HORIZONTALE"/>
+        </SLTextField>
+        
+        <!-- Label rue-->
+        <SLLabel text="Rue">   
+            <GridBagLayoutConstraints columnIndex="0" columnSpan="1" rowIndex="4" rowSpan="1" fillStrategy="HORIZONTALE"/>
+        </SLLabel>
+        
+        <!-- TextField rue--> 
+        <SLTextField text="#{Rue}">   
+            <GridBagLayoutConstraints columnIndex="2" columnSpan="2" rowIndex="4" rowSpan="1" fillStrategy="HORIZONTALE"/>
+        </SLTextField>
+        
+        <!-- Label Numéro-->
+        <SLLabel text="Numero">   
+            <GridBagLayoutConstraints columnIndex="0" columnSpan="1" rowIndex="5" rowSpan="1" fillStrategy="HORIZONTALE"/>
+        </SLLabel>
+        
+        <!-- TextField Numéro-->
+        <SLIntegerField value="#{Numero}" minimum="0">   
+            <GridBagLayoutConstraints columnIndex="1" columnSpan="2" rowIndex="5" rowSpan="1" fillStrategy="HORIZONTALE"/>
+        </SLIntegerField>
+ 
+        <!-- TextField Boite-->
+        <SLLabel text="boite">   
+            <GridBagLayoutConstraints columnIndex="3" columnSpan="1" rowIndex="5" rowSpan="1" fillStrategy="HORIZONTALE"/>
+        </SLLabel>
+        <!-- Label Boite-->
+        <SLTextField text="#{boite}">   
+            <GridBagLayoutConstraints columnIndex="4" columnSpan="1" rowIndex="5" rowSpan="1" fillStrategy="HORIZONTALE"/>
+        </SLTextField>
+        
+        <!-- Label Commune-->
+        <SLLabel text="Commune">   
+            <GridBagLayoutConstraints columnIndex="0" columnSpan="1" rowIndex="6" rowSpan="1" fillStrategy="HORIZONTALE"/>
+        </SLLabel>
+         
+        <!-- ComboBox Commune-->
+        <SLComboBox dataSource="#{ListeCommune}" displayPropery="#{Nom}" selectedValue="#{Commune}" onSelectionChanged="#{changedLocalite}">   
+            <GridBagLayoutConstraints columnIndex="2" columnSpan="2" rowIndex="6" rowSpan="1" fillStrategy="HORIZONTALE"/>
+        </SLComboBox>
+        
+        <!-- Label Localité-->
+        <SLLabel text="Localite">   
+            <GridBagLayoutConstraints columnIndex="0" columnSpan="1" rowIndex="7" rowSpan="1" fillStrategy="HORIZONTALE"/>
+        </SLLabel>
+        
+        <!-- ComboBox Localite-->
+        <SLComboBox dataSource="#{ListeLocalite}" selectedValue="#{Localite}">   
+            <GridBagLayoutConstraints columnIndex="2" columnSpan="2" rowIndex="7" rowSpan="1" fillStrategy="HORIZONTALE"/>
+        </SLComboBox>
+        <!--Confirmer-->
+        <SLButton text="Confirmer" onClick="#{saveInscription}">
+            <GridBagLayoutConstraints columnIndex="5" columnSpan="1" rowIndex="8" rowSpan="2" fillStrategy="HORIZONTALE"/>
+        </SLButton>
+    </Children>
+</SLDialog>
+

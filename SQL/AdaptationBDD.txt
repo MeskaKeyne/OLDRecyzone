@@ -1,0 +1,115 @@
+AUTO INCREMENT pour les idMenage, idNotification, idDepot, idFacture, idDetailFacture.
+
+---------------------------------------
+
+Ajout d'un idParcConteneur sur la table Concerner
+
+ALTER TABLE [dbo].[Concerner]  WITH CHECK ADD FOREIGN KEY([IdParcConteneur])
+REFERENCES [dbo].[ParcConteneur] ([IdParcConteneur])
+
+---------------------------------------
+
+Suppression de la contrainte not null sur les login et password de la table Menage. Un trigger les créera et les insèrera.
+
+---------------------------------------
+
+Ajout de contraintes sur la table Menage
+
+ALTER TABLE [dbo].[Menage]  WITH CHECK ADD  CONSTRAINT [Champs_valide] CHECK  ((len([nomcontact])>(1) AND len([prenomcontact])>(1) AND len([rue])>(1) AND [nbreadultes]>(0) AND [nbreenfants]>=(0)))
+GO
+ALTER TABLE [dbo].[Menage] CHECK CONSTRAINT [Champs_valide]
+GO
+ALTER TABLE [dbo].[Menage]  WITH CHECK ADD  CONSTRAINT [email_valide] CHECK  (([emailcontact] like '%@%.%'))
+GO
+ALTER TABLE [dbo].[Menage] CHECK CONSTRAINT [email_valide]
+GO
+---------------------------------------
+
+Creation d'une table de Coefficient
+
+/****** Object:  Table [dbo].[coefficient]    Script Date: 22-05-15 17:54:58 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[coefficient](
+	[idCoefficient] [int] NOT NULL,
+	[coefficient] [numeric](4, 2) NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[idCoefficient] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+
+-------------------------------------
+
+Ajout d'un idCoefficient sur la table Menage
+
+ALTER TABLE [dbo].[Menage]  WITH CHECK ADD FOREIGN KEY([idCoefficient])
+REFERENCES [dbo].[coefficient] ([idCoefficient])
+
+--------------------------------------
+
+Creation d'un table reprenant la date des dernière facturation
+
+/****** Object:  Table [dbo].[derniereFacturation]    Script Date: 22-05-15 17:54:58 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[derniereFacturation](
+	[DateFacturation] [smalldatetime] NULL
+) ON [PRIMARY]
+
+GO
+
+------------------------------------
+
+Creation d'une table Forfait
+
+/****** Object:  Table [dbo].[forfait]    Script Date: 22-05-15 17:54:58 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[forfait](
+	[idForfait] [int] IDENTITY(1,1) NOT NULL,
+	[idTypeDechet] [int] NOT NULL,
+	[idsurplus] [int] NOT NULL,
+	[montantforfait] [numeric](4, 2) NOT NULL,
+	[variable] [numeric](4, 2) NOT NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[idForfait] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+
+----------------------------------
+
+Création d'une table Surplus
+
+/****** Object:  Table [dbo].[surplus]    Script Date: 22-05-15 17:54:58 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[surplus](
+	[idSurplus] [int] NOT NULL,
+	[pourcentageMax] [numeric](6, 2) NOT NULL,
+	[pourcentageMin] [numeric](6, 2) NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[idSurplus] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+
+
+
+
+

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SLWindow 
+    xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance'
+    xsi:noNamespaceSchemaLocation='http://nhpack-nhendrikx.rhcloud.com/doc/slmainwindow.xsd'
+    controller="controllers.gerantParc.ControllersGerantParc"
+    width="800" height="600"
+	title="Recyzone :: Gerant Intercomunale :: Accueil"
+>
+    <Children>
+        <SLLabel text="#{header}">
+            <GridBagLayoutConstraints columndex="1" rowIndex="0" columnSpan="1" rowSpan="1" fillStrategy="HORIZONTAL"/>
+        </SLLabel>
+        
+        <SLArray dataSource="#{listeConteneur}" elementClass="models.gestion.Conteneur" visible="#{visible}">
+            <GridBagLayoutConstraints columnIndex="0" rowIndex="1" columnSpan="4" rowSpan="1" fillStrategy="BOTH"/>
+        </SLArray>
+        <SLButton text="Generer tournee" onClick="#{genererTournee}" visible="#{visible}">
+            <GridBagLayoutConstraints columnIndex="0" rowIndex="2" columnSpan="1" rowSpan="1" fillStrategy="NONE"/>
+        </SLButton>
+        
+        <SLButton text="Generer factures" onClick="#{genererFacture}">
+            <GridBagLayoutConstraints columnIndex="1" rowIndex="2" columnSpan="1" rowSpan="1" fillStrategy="NONE"/>
+        </SLButton>
+        <SLButton text="Statistiques" onClick="#{statistiques}">
+            <GridBagLayoutConstraints columnIndex="2" rowIndex="2" columnSpan="1" rowSpan="1" fillStrategy="NONE"/>
+        </SLButton>   
+        <SLButton text="Deconnexion" onClick="#{disconnect}">
+            <GridBagLayoutConstraints columnIndex="3" rowIndex="2" columnSpan="1" rowSpan="1" fillStrategy="NONE"/>
+        </SLButton>
+    </Children>
+</SLWindow>

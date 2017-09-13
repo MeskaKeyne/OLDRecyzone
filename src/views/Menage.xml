@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SLWindow title="Recyzone :: Menage :: Information" 
+          height="800" width="600" controller="controllers.menage.ControllersMenage">
+    <Children>
+        <SLLabel text="#{header}"> 
+            <GridBagLayoutConstraints rowIndex="0" columnIndex="1" columnSpan="1" fillStrategy="BOTH" />        
+        </SLLabel> 
+         <SLButton text="Facture" onClick="#{voirFacture}" visible="#{visible}">
+            <GridBagLayoutConstraints columnIndex="0" columnSpan="1" rowIndex="0" rowSpan="0" fillStrategy="NONE"/>
+        </SLButton>
+                 <SLButton text="Deconnexion" onClick="#{disconnect}">
+            <GridBagLayoutConstraints columnIndex="1" columnSpan="1" rowIndex="0" rowSpan="0" fillStrategy="NONE"/>
+        </SLButton>
+         <SLLabel text="#{information}">   
+            <GridBagLayoutConstraints columnIndex="0" columnSpan="2"  rowIndex="1" rowSpan="1" fillStrategy="HORIZONTALE"/>
+        </SLLabel>
+    </Children>
+</SLWindow>

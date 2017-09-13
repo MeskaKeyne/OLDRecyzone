@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<SLDialog title="RecyZone - Authentification" controller="controllers.main.ControllersConnexion" width="400" height="300">
+    <Children>
+        <SLLabel text="#{header}">
+            <GridBagLayoutConstraints rowIndex="0" columnIndex="0" fillStrategy="BOTH" />        
+        </SLLabel> 
+        <SLLabel text="#{message}">
+            <GridBagLayoutConstraints rowIndex="1" columnIndex="0" fillStrategy="BOTH" />        
+        </SLLabel>                
+        <SLLabel text="Login : ">
+            <GridBagLayoutConstraints rowIndex="2" columnIndex="0" fillStrategy="NONE" />
+        </SLLabel>
+        <SLTextField columnsCount="30" text="#{user}">
+            <GridBagLayoutConstraints rowIndex="3" columnIndex="0" fillStrategy="HORIZONTAL" />
+        </SLTextField>
+        <SLLabel text="Mot de passe : ">
+            <GridBagLayoutConstraints rowIndex="4" columnIndex="0" fillStrategy="NONE" />
+        </SLLabel>
+        <SLPasswordField columnsCount="30" text="#{password}">
+            <GridBagLayoutConstraints rowIndex="5" columnIndex="0" fillStrategy="HORIZONTAL" />
+        </SLPasswordField>
+        <SLButton text="Se Connecter" onClick="#{seConnecter}">
+            <GridBagLayoutConstraints rowIndex="6" columnIndex="0" fillStrategy="NONE" />            
+        </SLButton>
+        <SLButton text="Quitter" onClick="#{disconnect}">
+            <GridBagLayoutConstraints rowIndex="7" columnIndex="0" fillStrategy="NONE" />            
+        </SLButton>
+    </Children>
+</SLDialog>

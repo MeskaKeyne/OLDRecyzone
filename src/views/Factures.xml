@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SLWindow 
+    xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance'
+    xsi:noNamespaceSchemaLocation='http://nhpack-nhendrikx.rhcloud.com/doc/slmainwindow.xsd'
+    controller="controllers.menage.ControllersFacture"
+    width="800" height="600"
+	title="Recyzone :: Menage :: Facture"
+>
+    <Children>
+        <SLLabel text="#{header}" >
+            <GridBagLayoutConstraints columnIndex="1" rowIndex="0" columnSpan="1" rowSpan="1" fillStrategy="HORIZONTAL"/>
+        </SLLabel>
+        <SLArray dataSource="#{factures}" elementClass="models.gestion.Facture" selectedValues="{#selection}">
+            <GridBagLayoutConstraints columnIndex="0" rowIndex="1" columnSpan="3" rowSpan="1" fillStrategy="HORIZONTAL"/>
+        </SLArray>
+        <SLButton text="voir detail" onClick="#{detail}">
+            <GridBagLayoutConstraints columnIndex="0" rowIndex="2" columnSpan="1" rowSpan="1" fillStrategy="NONE"/>
+        </SLButton>
+                <SLButton text="Retour" onClick="#{disconnect()}">
+            <GridBagLayoutConstraints columnIndex="0" columnSpan="0" rowIndex="2" rowSpan="0" fillStrategy="NONE"/>
+        </SLButton>
+    </Children>
+</SLWindow>

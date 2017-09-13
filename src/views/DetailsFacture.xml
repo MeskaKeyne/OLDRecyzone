@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SLDialog 
+    xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance'
+    xsi:noNamespaceSchemaLocation='http://nhpack-nhendrikx.rhcloud.com/doc/slmainwindow.xsd'
+    controller="controllers.menage.ControllersDetailsFacture"
+    width="800" height="600"
+    title="RecyZone :: Menage :: Details facture">
+    <Children>
+        
+        <!-- Nom + date de l'util -->
+        <SLLabel text="#{header}" >
+            <GridBagLayoutConstraints columnIndex="1" rowIndex="0" columnSpan="1" rowSpan="1" fillStrategy="HORIZONTAL"/>
+        </SLLabel>
+        <SLButton text="Retour" onClick="#{disconnect()}">
+            <GridBagLayoutConstraints columnIndex="0" columnSpan="0" rowIndex="2" rowSpan="0" fillStrategy="NONE"/>
+        </SLButton>
+        <SLButton text="Payer" onClick="#{payer}" visible="#{visible}">
+            <GridBagLayoutConstraints columnIndex="0" rowIndex="2" columnSpan="1" rowSpan="1" fillStrategy="NONE"/>
+        </SLButton>
+        <SLLabel text="#{show}">   
+            <GridBagLayoutConstraints columnIndex="0" columnSpan="0"  rowIndex="1" rowSpan="1" fillStrategy="NONE"/>
+        </SLLabel>       
+    </Children>
+</SLDialog>

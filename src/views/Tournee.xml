@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SLDialog title="Recyzone :: Gerant Intercommunal :: Tournee" 
+          height="800" width="600" controller="controllers.gerantInter.ControllersTournee">
+    <Children>
+        <SLLabel text="#{header}"> 
+            <GridBagLayoutConstraints rowIndex="0" columnIndex="1" columnSpan="1" fillStrategy="NONE" />        
+        </SLLabel> 
+        <SLRichTextArea text="#{tournee}">   
+            <GridBagLayoutConstraints columnIndex="0" columnSpan="2"  rowIndex="1" rowSpan="1" fillStrategy="HORIZONTALE"/>
+        </SLRichTextArea>
+         <SLButton text="GO" onClick="#{vider}">
+            <GridBagLayoutConstraints columnIndex="0" rowIndex="2" columnSpan="1" rowSpan="1" fillStrategy="NONE"/>
+        </SLButton>
+    </Children>
+</SLDialog>

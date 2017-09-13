@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SLDialog 
+    xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance'
+    xsi:noNamespaceSchemaLocation='http://nhpack-nhendrikx.rhcloud.com/doc/slmainwindow.xsd'
+    controller="controllers.main.ControllersStatistique"
+    width="800" height="600"
+    title="Recyzone :: Statistiques">
+    <Children>
+        <SLLabel text="#{header}" >
+            <GridBagLayoutConstraints columnIndex="5" rowIndex="0" columnSpan="4" rowSpan="1" fillStrategy="NONE"/>
+        </SLLabel>
+        <SLButton text="Retour" onClick="#{disconnect}" >
+            <GridBagLayoutConstraints columnIndex="1" rowIndex="0" columnSpan="4" rowSpan="1" fillStrategy="NONE"/>
+        </SLButton>
+        <SLComboBox dataSource="#{BoxPeriode}" selectedValue="#{Periode}">
+            <GridBagLayoutConstraints columnIndex="1" rowIndex="1" columnSpan="1" rowSpan="1" fillStrategy="NONE"/>
+        </SLComboBox>
+        <SLRadioGroup onCheckChanged="#{type}">
+            <GridBagLayoutConstraints columnIndex="2" rowIndex="1" columnSpan="2" rowSpan="1" fillStrategy="NONE"/>
+            <Children>
+                <SLRadioButton text="Nombre moyen de visite" checked="#{visite}" />
+                <SLRadioButton text="Volume moyen des dechets" checked="#{volumeDechet}" />
+            </Children>
+        </SLRadioGroup>
+        <SLComboBox dataSource="#{BoxDechet}" displayProperty="#{TypeDeDechet}" selectedValue="#{Dechet}" visible="#{visible}">
+            <GridBagLayoutConstraints columnIndex="3" rowIndex="1" columnSpan="0" rowSpan="1" fillStrategy="NONE"/>
+        </SLComboBox>
+        <SLButton text="Generer" onClick="#{generer}">
+            <GridBagLayoutConstraints columnIndex="5" rowIndex="1" columnSpan="4" rowSpan="1" fillStrategy="NONE"/>
+        </SLButton>
+        <SLRichTextArea text="#{statistique}" >
+            <GridBagLayoutConstraints columnIndex="1" rowIndex="2" columnSpan="0" rowSpan="2" fillStrategy="NONE"/>
+        </SLRichTextArea>
+    </Children>
+</SLDialog>
+

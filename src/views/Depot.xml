@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SLDialog 
+    xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance'
+    xsi:noNamespaceSchemaLocation='http://nhpack-nhendrikx.rhcloud.com/doc/slmainwindow.xsd'
+    controller="controllers.employe.ControllersDepot"
+    width="800" height="600"
+    title="Recyzone :: Enploye :: Depot">
+    <Children>
+        
+        <!-- Nom + date de l'util -->
+        <SLLabel text="#{header}" >
+            <GridBagLayoutConstraints columnIndex="4" rowIndex="0" columnSpan="1" rowSpan="1" fillStrategy="HORIZONTAL"/>
+        </SLLabel>
+               <SLLabel text="Nom">
+            <GridBagLayoutConstraints columnIndex="0" rowIndex="0" columnSpan="1" rowSpan="1" fillStrategy="HORIZONTAL"/>
+        </SLLabel>
+        
+        <SLTextField text="#{recherche}">
+            <GridBagLayoutConstraints columnIndex="1" rowIndex="0" columnSpan="1" rowSpan="1" fillStrategy="HORIZONTAL"/>
+        </SLTextField>      
+        <SLButton text="Rechercher" onClick="#{faireRecherche}">
+            <GridBagLayoutConstraints columnIndex="2" rowIndex="0" columnSpan="1" rowSpan="1" fillStrategy="HORIZONTAL"/>
+        </SLButton>
+        
+        <SLArray dataSource="#{result}" elementClass="views.models.Recherche" visible="#{visible}" selectedValues="#{menageSelected}">
+            <GridBagLayoutConstraints rowIndex="2" columnIndex="0" rowSpan="1" columnSpan="3" fillStrategy="BOTH" />
+        </SLArray>
+       
+        <SLLabel text="Type dechet" visible="#{visible}">
+            <GridBagLayoutConstraints columnIndex="0" rowIndex="3" columnSpan="1" rowSpan="1" fillStrategy="HORIZONTAL"/>
+        </SLLabel>
+        
+        <SLComboBox dataSource="#{BoxDechet}" displayProperty="#{TypeDeDechet}" selectedValue="#{Dechet}" visible="#{visible}">
+            <GridBagLayoutConstraints columnIndex="1" rowIndex="3" columnSpan="1" rowSpan="1" fillStrategy="HORIZONTAL"/>
+        </SLComboBox>
+        <SLFloatField value="#{Volume}" minimum="0.0" maximum="#{maximum}" visible="#{visible}">
+            <GridBagLayoutConstraints columnIndex="2" rowIndex="3" columnSpan="1" rowSpan="1" fillStrategy="HORIZONTAL"/>
+        </SLFloatField>
+        
+        <SLLabel text="m3" visible="#{visible}">
+            <GridBagLayoutConstraints columnIndex="3" rowIndex="3" columnSpan="1" rowSpan="1" fillStrategy="HORIZONTAL"/>
+        </SLLabel>
+        <SLButton text="Depot" onClick="#{depotAEnregistrer}" visible="#{visible}">
+            <GridBagLayoutConstraints columnIndex="4" rowIndex="3" columnSpan="1" rowSpan="1" fillStrategy="HORIZONTAL"/>
+        </SLButton>
+         
+        <SLArray dataSource="#{listeDepot}" elementClass="models.gestion.Poubelles" visible="#{visible}">
+            <GridBagLayoutConstraints columnIndex="0" rowIndex="4" columnSpan="4" rowSpan="1" fillStrategy="BOTH"/>
+        </SLArray>
+        <SLButton text="Supprimer" onClick="#{deleteDepot}" visible="#{visible}">
+            <GridBagLayoutConstraints columnIndex="4" rowIndex="5" columnSpan="1" rowSpan="1" fillStrategy="HORIZONTAL"/>
+        </SLButton>
+       
+        <SLButton text="Confirmer" onClick="#{sauvegarderDepot}" visible="#{visible}">
+            <GridBagLayoutConstraints columnIndex="3" rowIndex="5" columnSpan="1" rowSpan="1" fillStrategy="HORIZONTAL"/>
+        </SLButton>
+       <SLButton text="Retour" onClick="#{disconnect}">
+            <GridBagLayoutConstraints columnIndex="0" rowIndex="5" columnSpan="1" rowSpan="1" fillStrategy="HORIZONTAL"/>
+        </SLButton>
+    </Children>
+</SLDialog>
